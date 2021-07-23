@@ -5,6 +5,9 @@ import { useTheme } from 'styled-components';
 import { AntDesign } from '@expo/vector-icons'
 
 import { BackButton } from '../../components/BackButton';
+import { Car } from '../../components/Car';
+import { LoadAnimation } from '../../components/LoadAnimation';
+
 import { CarDTO } from '../../dtos/CarDTO';
 import api from '../../services/api';
 
@@ -23,8 +26,7 @@ import {
   CarFooterPeriod,
   CarFooterDate,
 } from './styles';
-import { Car } from '../../components/Car';
-import { Load } from '../../components/Load';
+
 
 interface CarProps {
   car: CarDTO;
@@ -83,7 +85,7 @@ export function MyCars() {
         </SubTitle>
 
       </Header>
-      {loading ? <Load /> :
+      {loading ? <LoadAnimation /> :
         <Content>
           <Appointments>
             <AppointmentsTitle>Agendamentos Feitos</AppointmentsTitle>
