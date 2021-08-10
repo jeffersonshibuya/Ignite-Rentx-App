@@ -11,11 +11,18 @@ import {
 interface Props extends RectButtonProperties {
   title: string;
   color?: string;
-  enabled?: boolean;
   loading?: boolean;
+  light?: boolean;
 }
 
-export function Button({ title, color, enabled = true, loading = false, ...rest }: Props) {
+export function Button({
+  title,
+  color,
+  enabled = true,
+  loading = false,
+  light = false,
+  ...rest
+}: Props) {
 
   const theme = useTheme();
 
@@ -26,7 +33,8 @@ export function Button({ title, color, enabled = true, loading = false, ...rest 
       loading={loading}
       {...rest}
     >
-      {loading ? <ActivityIndicator color={theme.colors.shape} size={24} /> : <Title>{title}</Title>}
+      {loading ? <ActivityIndicator color={theme.colors.shape} size={24} />
+        : <Title light={light}>{title}</Title>}
     </Container>
   );
 }

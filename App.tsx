@@ -15,7 +15,9 @@ import {
 
 
 import theme from './src/styles/theme'
-import { Routes } from './src/screens/routes';
+import { Routes } from './src/routes';
+import { AuthProvider } from './src/hooks/auth';
+import { AppProvider } from './src/hooks';
 
 export default function App() {
 
@@ -33,7 +35,9 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Routes />
+      <AppProvider>
+        <Routes />
+      </AppProvider>
     </ThemeProvider>
   );
 }
